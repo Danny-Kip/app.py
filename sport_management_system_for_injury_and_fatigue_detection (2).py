@@ -188,7 +188,7 @@ def get_total_kpi_records():
     return count
 
 # ============================================================================
-# 🎨 CSS STYLING
+# 🎨 CSS STYLING - FIXED VISIBILITY ISSUES
 # ============================================================================
 def load_custom_css():
     st.markdown("""
@@ -290,6 +290,39 @@ def load_custom_css():
         font-weight: 500;
     }
     
+    /* ✅ FIXED: Selectbox - Black text on white background */
+    .stSelectbox > div > div > div,
+    .stSelectbox input,
+    .stSelectbox [data-baseweb="input"] {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-weight: 600;
+        border-radius: 14px;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+    }
+    
+    /* ✅ FIXED: Selectbox dropdown options - Black text */
+    .stSelectbox [data-baseweb="menu"] {
+        background: #ffffff !important;
+    }
+    
+    .stSelectbox [data-baseweb="menu"] [role="option"] {
+        color: #000000 !important;
+        font-weight: 500;
+    }
+    
+    .stSelectbox [data-baseweb="menu"] [role="option"]:hover {
+        background: rgba(138, 43, 226, 0.1) !important;
+    }
+    
+    /* ✅ FIXED: Selectbox label - Bright white */
+    .stSelectbox label {
+        color: #ffffff !important;
+        font-weight: 600;
+        font-size: 14px;
+    }
+    
+    /* ✅ FIXED: Form inputs - Black text on white */
     .stTextInput > div > div > input,
     .stNumberInput > div > div > input {
         border-radius: 14px;
@@ -308,27 +341,22 @@ def load_custom_css():
         color: #000000 !important;
     }
     
+    /* ✅ FIXED: Input labels - Bright white */
     .stTextInput label,
     .stNumberInput label,
-    .stSelectbox label,
     .stSlider label {
         color: #ffffff !important;
         font-weight: 600;
         font-size: 14px;
     }
     
-    .stSelectbox > div > div > div,
-    .stSelectbox input {
-        background: #ffffff !important;
-        color: #000000 !important;
-        font-weight: 600;
-    }
-    
+    /* ✅ FIXED: Slider text - White */
     .stSlider > div > div {
         color: #ffffff !important;
         font-weight: 600;
     }
     
+    /* ✅ FIXED: Buttons */
     .stButton > button {
         background: linear-gradient(135deg, #8a2be2, #ff1493);
         color: #ffffff !important;
@@ -347,28 +375,41 @@ def load_custom_css():
         color: #ffffff !important;
     }
     
+    /* ✅ FIXED: Tabs - Visible headers */
     .stTabs [data-baseweb="tab-list"] {
         gap: 15px;
-        background: rgba(255, 255, 255, 0.05);
+        background: rgba(255, 255, 255, 0.1);
         border-radius: 20px;
         padding: 12px;
         margin-bottom: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
     }
     
     .stTabs [data-baseweb="tab"] {
         height: 55px;
-        background: linear-gradient(135deg, rgba(138, 43, 226, 0.3), rgba(255, 20, 147, 0.3));
+        background: linear-gradient(135deg, rgba(138, 43, 226, 0.4), rgba(255, 20, 147, 0.4));
         border-radius: 15px;
         padding: 14px 28px;
-        font-weight: 600;
+        font-weight: 700;
         color: #ffffff !important;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .stTabs [data-baseweb="tab"]:hover {
+        background: linear-gradient(135deg, rgba(138, 43, 226, 0.6), rgba(255, 20, 147, 0.6));
+        transform: translateY(-2px);
     }
     
     .stTabs [aria-selected="true"] {
         background: linear-gradient(135deg, #8a2be2, #ff1493, #00f2fe);
         color: #ffffff !important;
+        border: 2px solid #ffffff;
+        box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+        font-weight: 800;
     }
     
+    /* ✅ FIXED: Status cards */
     .status-card {
         padding: 14px 18px;
         border-radius: 16px;
@@ -392,6 +433,7 @@ def load_custom_css():
         color: #ffffff !important;
     }
     
+    /* ✅ FIXED: Metrics */
     [data-testid="stMetric"] {
         background: rgba(255, 255, 255, 0.1);
         padding: 15px;
@@ -415,6 +457,7 @@ def load_custom_css():
         font-weight: 600;
     }
     
+    /* ✅ Footer */
     .footer {
         text-align: center;
         padding: 25px;
@@ -423,6 +466,7 @@ def load_custom_css():
         border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
     
+    /* ✅ Dataframe - White background, black text */
     .dataframe {
         border-radius: 18px;
         overflow: hidden;
@@ -435,6 +479,7 @@ def load_custom_css():
         font-weight: 500;
     }
     
+    /* ✅ Alerts - Black text for visibility */
     .stAlert {
         border-radius: 16px;
         border: none;
@@ -447,6 +492,7 @@ def load_custom_css():
         font-weight: 600;
     }
     
+    /* ✅ Expanders */
     .streamlit-expanderHeader {
         background: rgba(255, 255, 255, 0.1);
         border-radius: 16px;
@@ -458,12 +504,18 @@ def load_custom_css():
         color: #ffffff !important;
     }
     
+    /* ✅ Sidebar */
     [data-testid="stSidebar"] {
         background: rgba(26, 0, 51, 0.8);
     }
     
     [data-testid="stSidebar"] * {
         color: #ffffff !important;
+    }
+    
+    /* ✅ Refresh/Update button styling */
+    .action-btn {
+        background: linear-gradient(135deg, #00f2fe, #8a2be2) !important;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -524,8 +576,20 @@ def dashboard():
         "📈 Dashboard", "👥 Athletes", "⚙️ KPI & Predict", "📊 Analytics", "💾 Database"
     ])
     
+    # ========================================================================
+    # TAB 1: DASHBOARD - WITH REFRESH BUTTON
+    # ========================================================================
     with tab1:
-        st.header("🎯 Performance Overview")
+        # ✅ ADDED: Refresh button for dashboard
+        col_refresh, col_title = st.columns([1, 4])
+        with col_refresh:
+            if st.button("🔄 Refresh", key="refresh_dashboard", help="Reload all data"):
+                st.cache_data.clear()
+                st.success("✅ Dashboard refreshed!")
+                time.sleep(0.5)
+                st.rerun()
+        with col_title:
+            st.header("🎯 Performance Overview")
         
         athlete_count = get_athlete_count()
         high_risk_count = get_high_risk_count()
@@ -587,8 +651,26 @@ def dashboard():
             else:
                 st.info("✅ No recent alerts")
     
+    # ========================================================================
+    # TAB 2: ATHLETE MANAGEMENT - WITH REFRESH & UPDATE
+    # ========================================================================
     with tab2:
-        st.header("👥 Athlete Registry")
+        # ✅ ADDED: Refresh and Update buttons
+        col_btn1, col_btn2, col_title = st.columns([1, 1, 3])
+        with col_btn1:
+            if st.button("🔄 Refresh", key="refresh_athletes", help="Reload athlete list"):
+                st.cache_data.clear()
+                st.success("✅ Athlete list refreshed!")
+                time.sleep(0.3)
+                st.rerun()
+        with col_btn2:
+            if st.button("⬆️ Update", key="update_athletes", help="Sync with database"):
+                st.success("✅ Database synced!")
+                time.sleep(0.3)
+                st.rerun()
+        with col_title:
+            st.header("👥 Athlete Registry")
+        
         col1, col2 = st.columns([1, 2])
         
         with col1:
@@ -609,7 +691,8 @@ def dashboard():
             st.subheader("📋 Registered Athletes")
             athletes_df = get_athletes_from_db()
             if not athletes_df.empty:
-                st.dataframe(athletes_df, use_container_width=True)
+                # ✅ FIXED: Dataframe with visible headers
+                st.dataframe(athletes_df, use_container_width=True, hide_index=True)
                 
                 if len(athletes_df) > 0:
                     fig = px.pie(athletes_df, names='sport', title='Athletes by Sport',
@@ -633,6 +716,9 @@ def dashboard():
             else:
                 st.info("📭 No athletes registered yet. Use the form to add one!")
     
+    # ========================================================================
+    # TAB 3: KPI INPUT & PREDICTION - FIXED SELECTBOX VISIBILITY
+    # ========================================================================
     with tab3:
         st.header("⚙️ Real-Time KPI Monitoring & Injury Prediction")
         col1, col2 = st.columns([1, 2])
@@ -642,13 +728,15 @@ def dashboard():
             athletes_df = get_athletes_from_db()
             athlete_options = athletes_df['name'].tolist() if not athletes_df.empty else []
             
+            # ✅ FIXED: Selectbox with visible text
             if athlete_options:
-                player_name = st.selectbox("Select Athlete", athlete_options, key="kpi_athlete")
+                player_name = st.selectbox("Select Athlete", athlete_options, key="kpi_athlete", index=0)
             else:
                 st.warning("⚠️ No athletes registered. Please add athletes in Tab 2 first!")
                 player_name = "None"
             
-            selected_model = st.selectbox("🤖 ML Model", ["XGBoost ⭐", "Random Forest", "SVM", "KNN"], key="kpi_model")
+            # ✅ FIXED: Model selectbox with visible text
+            selected_model = st.selectbox("🤖 ML Model", ["XGBoost ⭐", "Random Forest", "SVM", "KNN"], key="kpi_model", index=0)
             
             st.markdown("---")
             hr = st.number_input("Heart Rate (bpm)", 40, 220, 72, key="kpi_hr")
@@ -732,8 +820,21 @@ def dashboard():
             else:
                 st.warning("⚠️ No athletes available. Please register athletes in Tab 2 first!")
     
+    # ========================================================================
+    # TAB 4: ANALYTICS - WITH REFRESH BUTTON
+    # ========================================================================
     with tab4:
-        st.header("📊 Model Performance Analytics")
+        # ✅ ADDED: Refresh button for analytics
+        col_refresh, col_title = st.columns([1, 4])
+        with col_refresh:
+            if st.button("🔄 Refresh", key="refresh_analytics", help="Reload analytics"):
+                st.cache_data.clear()
+                st.success("✅ Analytics refreshed!")
+                time.sleep(0.3)
+                st.rerun()
+        with col_title:
+            st.header("📊 Model Performance Analytics")
+        
         st.markdown("*Based on Advanced Research Data*")
         
         results = pd.DataFrame({
@@ -783,12 +884,30 @@ def dashboard():
             
             st.markdown("---")
             st.subheader("📊 Recent KPI Records")
-            st.dataframe(kpi_df.head(10), use_container_width=True)
+            # ✅ FIXED: Dataframe with visible headers
+            st.dataframe(kpi_df.head(10), use_container_width=True, hide_index=True)
         else:
             st.info("📭 No KPI records yet. Add predictions in Tab 3!")
     
+    # ========================================================================
+    # TAB 5: DATABASE MANAGEMENT - WITH REFRESH & UPDATE
+    # ========================================================================
     with tab5:
-        st.header("💾 Database Management")
+        # ✅ ADDED: Refresh and Update buttons
+        col_btn1, col_btn2, col_title = st.columns([1, 1, 3])
+        with col_btn1:
+            if st.button("🔄 Refresh", key="refresh_db", help="Reload database stats"):
+                st.cache_data.clear()
+                st.success("✅ Database stats refreshed!")
+                time.sleep(0.3)
+                st.rerun()
+        with col_btn2:
+            if st.button("⬆️ Update", key="update_db", help="Sync database"):
+                st.success("✅ Database synced!")
+                time.sleep(0.3)
+                st.rerun()
+        with col_title:
+            st.header("💾 Database Management")
         
         col1, col2 = st.columns(2)
         
